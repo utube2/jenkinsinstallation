@@ -7,11 +7,15 @@ pipeline {
                 sh 'docker --version'
             }
         }
-        
         stage('Git-Verify') {
             steps {
                 sh 'git --version'
             }
         }
+        stage('Docker-BUILD')
+        steps {
+             sh 'sudo docker build -t myimage:v1'
+        }
+        
     }
 }
