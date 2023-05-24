@@ -12,11 +12,6 @@ pipeline {
                 sh 'git --version'
             }
         }
-        stage('Docker-BUILD') {
-           steps {
-                sh 'docker build -t myimage:v1 .'
-           }
-        }
-        
+               
     }
 }
