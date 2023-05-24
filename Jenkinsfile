@@ -2,7 +2,7 @@ pipeline {
     agent any
     environment {
         Docker_Image_Name = 'myimage'
-        Docker_Tag = 'v2'
+        // using $BUILD_NUMBER as predefined variable in the build stage as TAG
     }
     stages {
         stage('Docker-Verify') {
@@ -17,7 +17,7 @@ pipeline {
         }
         stage('Docker-BUILD') {
            steps {
-               sh 'docker build -t ${Docker_Image_Name}:${Docker_Tag} .'
+               sh 'docker build -t ${Docker_Image_Name}:v$BUILD_NUMBER .'
            }
         }
         stage('Docker-Image-Verify'){
