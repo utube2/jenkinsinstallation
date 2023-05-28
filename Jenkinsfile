@@ -5,8 +5,8 @@ pipeline {
         // using $BUILD_NUMBER as predefined variable in the build stage as TAG
     }
     options{
-    builddiscarder(logRotator(numToKeepStr: '1'))
-        
+    builddiscarder(logRotator(numToKeepStr: '10'))
+    disableConcurrentBuilds()    
     }
     stages {
         stage('Docker-Verify') {
