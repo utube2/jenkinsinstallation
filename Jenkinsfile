@@ -4,6 +4,10 @@ pipeline {
         Docker_Image_Name = 'myimage'
         // using $BUILD_NUMBER as predefined variable in the build stage as TAG
     }
+    options{
+    builddiscarder(logRotator(numToKeepStr: '1'))
+        
+    }
     stages {
         stage('Docker-Verify') {
             steps {
